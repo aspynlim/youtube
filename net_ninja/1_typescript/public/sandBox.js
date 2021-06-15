@@ -69,3 +69,21 @@ var sayHello = function (user) {
     console.log(user.name + " with the ID number '" + user.uId + "' says \"hello\".");
 };
 sayHello({ name: 'jane', uId: 123 });
+// Function Signatures
+var greeting;
+greet = function (name, greeting) {
+    console.log(name + " says " + greeting + ".");
+};
+var calc;
+calc = function (num1, num2, action) {
+    if (action === 'add') {
+        return num1 + num2;
+    }
+    else {
+        return num1 - num2;
+    }
+};
+var logDetails;
+logDetails = function (ninja) {
+    console.log(ninja.name + " is " + ninja.age + " years old.");
+};
