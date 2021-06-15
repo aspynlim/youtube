@@ -90,10 +90,13 @@ const minus = (a: number, b: number): number => {
 console.log(minus(10, 10));
 
 
-// Type Aliase
+
+// Type Aliases
 type StringOrNum = string | number;
 type objWithName = { name: string, uId: StringOrNum };
 
-const sayHello = (user: objWithName) => {
-  console.log(`${user.name} says hello.`);
+let sayHello = (user: objWithName) => {
+  console.log(`${user.name} with the ID number '${user.uId}' says "hello".`);
 }
+
+sayHello({name: 'jane', uId: 123});

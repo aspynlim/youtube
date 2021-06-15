@@ -66,5 +66,6 @@ var minus = function (a, b) {
 };
 console.log(minus(10, 10));
 var sayHello = function (user) {
-    console.log(user.name + " says hello.");
+    console.log(user.name + " with the ID number '" + user.uId + "' says \"hello\".");
 };
+sayHello({ name: 'jane', uId: 123 });
