@@ -61,3 +61,14 @@ obj2 = {
   age: 30
 }
 console.log(obj2);
+
+
+// Dynamic(Any) Types
+let age: any = 25;
+age = true;
+console.log(age);
+
+let mix: any[] = [];
+mix.push(true);
+mix.push(100);
+console.log(mix);
