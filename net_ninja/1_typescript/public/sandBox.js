@@ -53,3 +53,18 @@ var mix = [];
 mix.push(true);
 mix.push(100);
 console.log(mix);
+// Function Basics
+var greet;
+greet = function (a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+};
+greet(5, 10);
+var minus = function (a, b) {
+    return a + b;
+};
+console.log(minus(10, 10));
+var sayHello = function (user) {
+    console.log(user.name + " says hello.");
+};

@@ -72,3 +72,28 @@ let mix: any[] = [];
 mix.push(true);
 mix.push(100);
 console.log(mix);
+
+
+// Function Basics
+let greet: Function;
+
+greet = (a: number, b: number, c?: number|string): void => {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+greet(5, 10);
+
+const minus = (a: number, b: number): number => {
+  return a + b;
+}
+console.log(minus(10, 10));
+
+
+// Type Aliase
+type StringOrNum = string | number;
+type objWithName = { name: string, uId: StringOrNum };
+
+const sayHello = (user: objWithName) => {
+  console.log(`${user.name} says hello.`);
+}
