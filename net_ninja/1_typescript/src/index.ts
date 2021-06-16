@@ -1,5 +1,8 @@
 import { formData } from './forms';
-import { IsPerson } from './interfaces/isPerson';
+import { IsPerson } from './interfaces/IsPerson';
+import { Payment } from './classes/Payment';
+import { HasFormatter } from './interfaces/HasFormatter';
+import { Invoice } from './classes/Invoice';
 
 // formData
 const form = document.querySelector('form')!;
@@ -30,3 +33,16 @@ const greetPerson = (person: IsPerson) => {
   console.log(`hello, ${person.name}`);
 }
 greetPerson(me);
+
+// Interfaces with Classes
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
+
+docOne = new Invoice('jen', 'web work', 250);
+docTwo = new Payment('joy', 'plumbing work', 200);
+
+let docs: HasFormatter[] = [];
+docs.push(docOne);
+docs.push(docTwo);
+
+console.log(docs);
