@@ -1,81 +1,81 @@
 "use strict";
 // #3 Type Basics
-var inputs = document.querySelectorAll('input');
-inputs.forEach(function (input) {
+const inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
     console.log(input);
 });
-var character = 'test';
+let character = 'test';
 character = 'jo';
-var circ = function (diameter) {
+const circ = (diameter) => {
     return diameter * Math.PI;
 };
 console.log(circ(100));
 // #4 Object & Arrays
-var names = ['purple', 'apple'];
+let names = ['purple', 'apple'];
 names.push('test');
 console.log(names);
-var mixed = [20, 'test'];
+let mixed = [20, 'test'];
 mixed.push(30);
 console.log(mixed);
-var ninja = {
+let ninja = {
     name: 'mario',
     age: 20,
     skills: ['skiing', 'driving']
 };
 console.log(ninja);
 // #5 Explicit Types
-var company;
+let company;
 company = 'test';
 company = false;
 console.log(company);
-var ninjas_mixed = [];
+let ninjas_mixed = [];
 ninjas_mixed.push('stay');
 ninjas_mixed.push(10);
 console.log(ninjas_mixed);
-var obj;
+let obj;
 obj = {
     name: 'sam',
     age: 20
 };
 obj = [20];
 console.log(obj);
-var obj2;
+let obj2;
 obj2 = {
     name: 'jo',
     age: 30
 };
 console.log(obj2);
 // Dynamic(Any) Types
-var age = 25;
+let age = 25;
 age = true;
 console.log(age);
-var mix = [];
+let mix = [];
 mix.push(true);
 mix.push(100);
 console.log(mix);
 // Function Basics
-var greet;
-greet = function (a, b, c) {
+let greet;
+greet = (a, b, c) => {
     console.log(a);
     console.log(b);
     console.log(c);
 };
 greet(5, 10);
-var minus = function (a, b) {
+const minus = (a, b) => {
     return a + b;
 };
 console.log(minus(10, 10));
-var sayHello = function (user) {
-    console.log(user.name + " with the ID number '" + user.uId + "' says \"hello\".");
+let sayHello = (user) => {
+    console.log(`${user.name} with the ID number '${user.uId}' says "hello".`);
 };
 sayHello({ name: 'jane', uId: 123 });
 // Function Signatures
-var greeting;
-greet = function (name, greeting) {
-    console.log(name + " says " + greeting + ".");
+let greeting;
+greet = (name, greeting) => {
+    console.log(`${name} says ${greeting}.`);
 };
-var calc;
-calc = function (num1, num2, action) {
+let calc;
+calc = (num1, num2, action) => {
     if (action === 'add') {
         return num1 + num2;
     }
@@ -83,7 +83,7 @@ calc = function (num1, num2, action) {
         return num1 - num2;
     }
 };
-var logDetails;
-logDetails = function (ninja) {
-    console.log(ninja.name + " is " + ninja.age + " years old.");
+let logDetails;
+logDetails = (ninja) => {
+    console.log(`${ninja.name} is ${ninja.age} years old.`);
 };

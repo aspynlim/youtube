@@ -1,3 +1,5 @@
+import { Invoice } from "./classes/Invoice.js";
+
 // #11 The DOM & Type Casting
 
 // "!" : we're 100% sure that there is no null value.
@@ -30,28 +32,6 @@ form.addEventListener('submit', (e) => {
    private : cannot access it outside of the class + cannot change the value
    readonly : can access it outside of the class + cannnot change the value
 */
-class Invoice {
-  // private client: string;
-  // readonly details: string;
-  // amount: number;
-
-  // constructor(c: string, d: string, a: number){
-  //   this.client = c;
-  //   this.details = d;
-  //   this.amount = a;
-  // }
-
-  constructor(
-    private client: string,
-    readonly details: string,
-    public amount: number
-  ){}
-
-  format(){
-    // this.details = 'test';
-    return `${this.client} owes $${this.amount} for ${this.details}.`
-  }
-}
 
 const invOne = new Invoice('Jen', 'work on the website', 1000);
 const invTwo = new Invoice('Mario', 'work on the website', 500);
