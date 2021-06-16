@@ -14,13 +14,27 @@ form.addEventListener('submit', function (e) {
     console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
 });
 // #12 Classes
+// #13 Access Modifiers 
+/*
+   private : cannot access it outside of the class + cannot change the value
+   readonly : can access it outside of the class + cannnot change the value
+*/
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+    // private client: string;
+    // readonly details: string;
+    // amount: number;
+    // constructor(c: string, d: string, a: number){
+    //   this.client = c;
+    //   this.details = d;
+    //   this.amount = a;
+    // }
+    function Invoice(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     Invoice.prototype.format = function () {
+        // this.details = 'test';
         return this.client + " owes $" + this.amount + " for " + this.details + ".";
     };
     return Invoice;
@@ -32,5 +46,9 @@ var invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
 // "public" property 이기 때문에 수정 가능
-invOne.client = 'Jeplin';
+// invOne.client = 'Jeplin';
 console.log(invoices);
+invoices.forEach(function (inv) {
+    // inv.client = 'change';
+    console.log(inv.details, inv.amount, inv.format());
+});

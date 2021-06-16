@@ -25,18 +25,30 @@ form.addEventListener('submit', (e) => {
 
 
 // #12 Classes
+// #13 Access Modifiers 
+/*
+   private : cannot access it outside of the class + cannot change the value
+   readonly : can access it outside of the class + cannnot change the value
+*/
 class Invoice {
-  client: string;
-  details: string;
-  amount: number;
+  // private client: string;
+  // readonly details: string;
+  // amount: number;
 
-  constructor(c: string, d: string, a: number){
-    this.client = c;
-    this.details = d;
-    this.amount = a;
-  }
+  // constructor(c: string, d: string, a: number){
+  //   this.client = c;
+  //   this.details = d;
+  //   this.amount = a;
+  // }
+
+  constructor(
+    private client: string,
+    readonly details: string,
+    public amount: number
+  ){}
 
   format(){
+    // this.details = 'test';
     return `${this.client} owes $${this.amount} for ${this.details}.`
   }
 }
@@ -51,6 +63,11 @@ invoices.push(invOne);
 invoices.push(invTwo);
 
 // "public" property 이기 때문에 수정 가능
-invOne.client = 'Jeplin';
+// invOne.client = 'Jeplin';
 
 console.log(invoices);
+
+invoices.forEach(inv => {
+  // inv.client = 'change';
+  console.log(inv.details, inv.amount, inv.format());
+});
