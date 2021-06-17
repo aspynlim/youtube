@@ -1,5 +1,5 @@
 import { formData } from './forms';
-import { IsPerson } from './interfaces/IsPerson';
+import { IsPerson } from './interfaces/isPerson';
 import { Payment } from './classes/Payment';
 import { HasFormatter } from './interfaces/HasFormatter';
 import { Invoice } from './classes/Invoice';
