@@ -41,3 +41,24 @@ const addUID = <T extends {name: string}>(obj: T) => {
 }
 let docOne = addUID({name: 'jen', age: 30});
 console.log(docOne.name); // jen
+
+// Generics with an interface
+interface Resource<T> {
+  uId: number;
+  resourceName: string;
+  data: T;
+}
+
+const docThree: Resource<object> = {
+  uId: 1,
+  resourceName: 'person',
+  data: {color : 'black'}
+}
+
+const docFour: Resource<string[]> = {
+  uId: 2,
+  resourceName: 'person',
+  data: ['red', 'blue']
+}
+
+console.log(docThree, docFour);
