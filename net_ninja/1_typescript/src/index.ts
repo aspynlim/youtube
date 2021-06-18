@@ -35,9 +35,9 @@ form.addEventListener('submit', (e) => {
 
 
 // Generics
-const addUID = (obj: object) => {
+const addUID = <T extends {name: string}>(obj: T) => {
   let uid = Math.floor(Math.random() * 100);
   return {...obj, uid};
 }
 let docOne = addUID({name: 'jen', age: 30});
-console.log(docOne.name); // ERROR : Property 'name' does not exist on type
+console.log(docOne.name); // jen
