@@ -32,3 +32,12 @@ form.addEventListener('submit', (e) => {
 
   list.render(doc, type.value, 'end');
 });
+
+
+// Generics
+const addUID = (obj: object) => {
+  let uid = Math.floor(Math.random() * 100);
+  return {...obj, uid};
+}
+let docOne = addUID({name: 'jen', age: 30});
+console.log(docOne.name); // ERROR : Property 'name' does not exist on type
