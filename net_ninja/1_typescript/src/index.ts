@@ -42,22 +42,25 @@ const addUID = <T extends {name: string}>(obj: T) => {
 let docOne = addUID({name: 'jen', age: 30});
 console.log(docOne.name); // jen
 
+// Enum
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON };
+
 // Generics with an interface
 interface Resource<T> {
   uId: number;
-  resourceName: string;
+  resourceType: ResourceType;
   data: T;
 }
 
 const docThree: Resource<object> = {
   uId: 1,
-  resourceName: 'person',
+  resourceType: ResourceType.AUTHOR,
   data: {color : 'black'}
 }
 
 const docFour: Resource<string[]> = {
   uId: 2,
-  resourceName: 'person',
+  resourceType: ResourceType.PERSON,
   data: ['red', 'blue']
 }
 
