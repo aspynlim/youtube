@@ -1,48 +1,29 @@
-import { formData } from './forms';
-import { IsPerson } from './interfaces/isPerson';
-import { Payment } from './classes/Payment';
-import { HasFormatter } from './interfaces/HasFormatter';
-import { Invoice } from './classes/Invoice';
+import { Invoice } from "./classes/Invoice";
+import { Payment } from "./classes/Payment";
+import { HasFormatter } from "./interfaces/HasFormatter";
 
-// formData
-const form = document.querySelector('form')!;
+const anchor = document.querySelector('a')!;
+console.log(anchor.href);
+
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
+// console.log(form.children);
+
+const type = document.querySelector('#type') as HTMLSelectElement;
+const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
 
 form.addEventListener('submit', (e) => {
+  console.log(type.value);
   e.preventDefault();
-  const data = formData(form);
-  console.log(data);
-});
 
-const person: any = {};
-// console.log(person.speak());
+  let doc: HasFormatter;
 
-// Interfaces > isPerson
-const me: IsPerson = {
-  name: 'jay',
-  age: 30,
-  speak(text: string): void {
-    console.log(text);
-  },
-  spend(amount: number): number {
-    console.log(`I spent ${amount}.`);
-    return amount;
+  if(type.value === 'invoice'){
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+  } else {
+    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
   }
-};
 
-const greetPerson = (person: IsPerson) => {
-  console.log(`hello, ${person.name}`);
-}
-greetPerson(me);
-
-// Interfaces with Classes
-let docOne: HasFormatter;
-let docTwo: HasFormatter;
-
-docOne = new Invoice('jen', 'web work', 250);
-docTwo = new Payment('joy', 'plumbing work', 200);
-
-let docs: HasFormatter[] = [];
-docs.push(docOne);
-docs.push(docTwo);
-
-console.log(docs);
+  console.log(doc);
+});
