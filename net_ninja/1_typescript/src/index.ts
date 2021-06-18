@@ -22,12 +22,15 @@ form.addEventListener('submit', (e) => {
   console.log(type.value);
   e.preventDefault();
 
+  let values: [string, string, number];
+  values = [tofrom.value, details.value, amount.valueAsNumber];
+
   let doc: HasFormatter;
 
   if(type.value === 'invoice'){
-    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+    doc = new Invoice(...values);
   } else {
-    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
+    doc = new Payment(...values);
   }
 
   list.render(doc, type.value, 'end');
@@ -65,3 +68,11 @@ const docFour: Resource<string[]> = {
 }
 
 console.log(docThree, docFour);
+
+
+// Tuples
+let tup: [string, number, boolean] = ['red', 25, true];
+tup[0] = 'black';
+
+let student: [string, number];
+student = ['jen', 12345];
