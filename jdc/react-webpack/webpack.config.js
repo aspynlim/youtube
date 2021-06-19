@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
+  entry: './src/index.ts',
   module: {
     rules: [
       {
@@ -38,7 +39,6 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
   devServer: {
-    port: 3010,
     watchContentBase: true
   },
 }
