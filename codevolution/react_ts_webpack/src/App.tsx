@@ -4,6 +4,7 @@ import bird from './bird.svg';
 import { ClickCounter } from './ClickCounter';
 
 export const App = () => {
+  // const num = 0;
   return <>
   <h1>HELLO! 123 Just do it! {process.env.NODE_ENV} {process.env.name}</h1>
   <img src={image} alt="React Logo" width="200" />
