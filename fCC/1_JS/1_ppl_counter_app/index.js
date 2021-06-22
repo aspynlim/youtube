@@ -1,8 +1,14 @@
-// document.getElementById('count-el').innerText = 6;
-
 let count = 0;
-console.log(count);
 
-// Uncaught ReferenceError: Cannot access 'myAge' before initialization
-console.log(myAge);
-let myAge = 32;
+let num = document.getElementById('count-el');
+let btn = document.getElementById('increment-btn');
+
+function increment(){
+  btn.addEventListener('click', () => {
+    count += 1;
+    // num.textContent = count;
+    num.innerText = count;
+  });
+}
+
+increment();
