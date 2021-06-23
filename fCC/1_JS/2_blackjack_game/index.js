@@ -7,6 +7,13 @@ let messageEl = document.querySelector('#message-el');
 let cardsEl = document.querySelector('#cards-el');
 let sumEl = document.querySelector('#sum-el');
 
+let player = {
+  name: "Jen",
+  chips: 134,
+};
+let playerEl = document.querySelector('#player-el');
+playerEl.textContent = `${player.name} : ${player['chips']}`;
+
 // Functions => 'hoisting' 발생
 function getRandomCard(){
   let randomNum = Math.ceil(Math.random() * 13);
