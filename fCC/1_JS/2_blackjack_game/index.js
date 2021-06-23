@@ -1,4 +1,4 @@
-let firstCard = 10;
+let firstCard = 14;
 let secondCard = 1;
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
@@ -10,7 +10,7 @@ let sumEl = document.querySelector('#sum-el');
 
 console.log(firstCard, secondCard, sum);
 
-let nums = [];
+let nums = []; // Array : Ordered list of items
 nums.push(firstCard);
 nums.push(secondCard);
 
@@ -31,6 +31,10 @@ function startGame(){
   messageEl.textContent = msg;
   console.log("hasBlackJack", hasBlackJack);
   console.log("isAlive", isAlive);
+}
+
+function renderGame(){
+  startGame();
 }
 
 function newCard(){
