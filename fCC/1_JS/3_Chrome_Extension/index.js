@@ -13,8 +13,8 @@ inputBtn.addEventListener('click', () => {
 
 for(let lead of myLeads){
   const li = document.createElement("li");
-  li.appendChild(document.createTextNode(lead));
-  ulEl.appendChild(li);
+  li.textContent = lead;
+  ulEl.append(li);
 }
 
 for(let lead of myLeads){
