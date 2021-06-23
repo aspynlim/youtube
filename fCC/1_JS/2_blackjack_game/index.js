@@ -1,5 +1,7 @@
-let firstCard = 14;
-let secondCard = 1;
+let firstCard = getRandomCard();
+let secondCard = getRandomCard();
+let cards = [firstCard, secondCard];
+
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
 let isAlive = true;
@@ -10,13 +12,27 @@ let sumEl = document.querySelector('#sum-el');
 
 console.log(firstCard, secondCard, sum);
 
-let nums = []; // Array : Ordered list of items
-nums.push(firstCard);
-nums.push(secondCard);
+// Functions => 'hoisting' 발생
+function getRandomCard(){
+  let randomNum = Math.ceil(Math.random() * 13);
+  console.log(randomNum);
+  
+  if(randomNum === 1){
+    return 10;
+  } else if(randomNum >= 11) {
+    return 11;
+  } else {
+    return randomNum;
+  }
+}
 
-function startGame(){
+function renderGame(){
   sumEl.textContent = `Sum : ${sum}`;
-  cardsEl.textContent = `Cards : ${[...nums]}`;
+  // cardsEl.textContent = `Cards : ${[...cards]}`;
+  cardsEl.textContent = 'Cards: ';
+  for(let card of cards){
+    cardsEl.textContent += card + " ";
+  }
 
   if(sum <= 20){
     msg = "Do you want to draw a new card ?";
@@ -29,17 +45,17 @@ function startGame(){
   }
 
   messageEl.textContent = msg;
-  console.log("hasBlackJack", hasBlackJack);
-  console.log("isAlive", isAlive);
+  // console.log("hasBlackJack", hasBlackJack);
+  // console.log("isAlive", isAlive);
 }
 
-function renderGame(){
-  startGame();
+function startGame(){
+  renderGame();
 }
 
 function newCard(){
-  let newCard = 3;
-  nums.push(newCard);
+  let newCard = getRandomCard();
+  cards.push(newCard);
   sum += newCard;
   startGame();
 }
