@@ -1,0 +1,29 @@
+body {
+  background: no-repeat top center url("../1_ppl_counter_app/station.jpg");
+  text-align: center;
+  font-family: 'Trebuchet MS';
+}
+
+h1 {
+  color: orange;
+}
+
+#message-el {
+  color: purple;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.support {
+  font-weight: bold;
+}
+
+#btn-start {
+  background: darkred;
+  color: white;
+  font-weight: bold;
+  box-shadow: 6px 5px 5px gray;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 10px;
+}
