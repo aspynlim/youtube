@@ -1,22 +1,17 @@
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let cards = [firstCard, secondCard];
-
-let sum = firstCard + secondCard;
+let sum = 0;
+let cards = [];
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let msg = '';
 let messageEl = document.querySelector('#message-el');
 let cardsEl = document.querySelector('#cards-el');
 let sumEl = document.querySelector('#sum-el');
 
-console.log(firstCard, secondCard, sum);
-
 // Functions => 'hoisting' 발생
 function getRandomCard(){
   let randomNum = Math.ceil(Math.random() * 13);
   console.log(randomNum);
-  
+
   if(randomNum === 1){
     return 10;
   } else if(randomNum >= 11) {
@@ -28,6 +23,7 @@ function getRandomCard(){
 
 function renderGame(){
   sumEl.textContent = `Sum : ${sum}`;
+
   // cardsEl.textContent = `Cards : ${[...cards]}`;
   cardsEl.textContent = 'Cards: ';
   for(let card of cards){
@@ -45,18 +41,24 @@ function renderGame(){
   }
 
   messageEl.textContent = msg;
-  // console.log("hasBlackJack", hasBlackJack);
-  // console.log("isAlive", isAlive);
 }
 
 function startGame(){
+  isAlive = true;
+  
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+  cards = [firstCard, secondCard];
+  sum = firstCard + secondCard;
+
   renderGame();
 }
 
 function newCard(){
-  let newCard = getRandomCard();
-  cards.push(newCard);
-  sum += newCard;
-  startGame();
+  if(isAlive && !hasBlackJack){
+    let newCard = getRandomCard();
+    cards.push(newCard);
+    sum += newCard;
+    renderGame();
+  }
 }
-
