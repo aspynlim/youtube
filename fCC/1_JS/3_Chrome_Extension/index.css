@@ -42,3 +42,13 @@ li {
 li a {
   color: #5f9341;
 }
+
+#container {
+  margin-top: 20px;
+}
+
+.team-img {
+  width: 100px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
