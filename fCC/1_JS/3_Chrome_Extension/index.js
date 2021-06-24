@@ -7,7 +7,7 @@ const leadsFromLoclStorage = JSON.parse(localStorage.getItem("myLeads"));
 
 if (leadsFromLoclStorage) {
   myLeads = leadsFromLoclStorage;
-  renderLeads();
+  render(myLeads);
 }
 
 inputBtn.addEventListener("click", () => {
@@ -17,18 +17,19 @@ inputBtn.addEventListener("click", () => {
   localStorage.setItem("myLeads", JSON.stringify(myLeads));
   console.log(myLeads);
 
-  renderLeads();
+  render(myLeads);
 });
 
 deleteBtn.addEventListener("dblclick", () => {
   localStorage.clear();
   myLeads = [];
-  renderLeads();
+  render(myLeads);
 });
 
-function renderLeads() {
+function render(leads) {
+  console.log(leads);
   let listItems = "";
-  for (let lead of myLeads) {
+  for (let lead of leads) {
     // Use "Template String"
     listItems += `
       <li>
